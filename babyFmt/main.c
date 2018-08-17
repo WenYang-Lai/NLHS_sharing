@@ -1,10 +1,22 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
 
-int main(int argc, char** argv){
-    
+void init(){
+    setbuf(stdin, 0);
+    setbuf(stdout, 0);
+}
+
+void magic(){
+    system("/bin/sh");
+}
+
+int main(){
+    init();
+    int n;
     char buf[2048];
-    scanf("%s\n", buf);
+    n = read(0, buf, 2048);
+    buf[n-1] = 0;
     printf(buf);
     puts("Bye!");
-
 }
