@@ -1,11 +1,15 @@
 #include <unistd.h>
+#include <stdlib.h>
 #include <stdio.h>
-int main(int argc, char** argv){
 
-    while (1){
-        char buf[256];
-        size_t n = read(0, buf, 256);
-        printf("hello %s\n", buf);
-    }
+void init(){
+    setbuf(stdout, 0);
+    setbuf(stdin, 0);
+}
+
+int main(int argc, char** argv){
+    init();
+    char buf[0x20];
+    read(0, buf, 0x100);
     return 0; 
 }
