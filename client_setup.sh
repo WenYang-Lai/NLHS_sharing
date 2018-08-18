@@ -1,7 +1,7 @@
 #!/bin/bash
 
 sudo apt-get update
-sudo apt-get install python python-dev git curl tmux vim -y
+sudo apt-get install python python-dev git curl tmux vim gdb -y
 sudo apt-get install libc6-dbg -y
 curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
 sudo python get-pip.py
