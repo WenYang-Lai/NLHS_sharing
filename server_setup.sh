@@ -1,7 +1,7 @@
 #!/bin/bash
 
 sudo apt-get update
-sudo apt-get install make socat -y
+sudo apt-get install make gcc gdb socat -y
 
 sudo adduser    \
     --system    \
@@ -42,5 +42,23 @@ make
 sudo cp flag babyROP /home/babyROP/
 sudo chown babyROP:babyROP /home/babyROP/*
 
-sudo - babyROP
+sudo -u babyBof bash
+cd /home/babyBof
+socat TCP-LISTEN:10101,fork EXEC: ./babyBof &
+exit
+
+sudo -u babyFmt bash
+cd /home/babyFmt
+socat TCP-LISTEN:10102,fork EXEC: ./babyFmt &
+exit
+
+sudo -u babyROP bash
+cd /home/babyROP
+socat TCP-LISTEN:10103,fork EXEC: ./babyROP &
+exit
+
+cd $HOME && rm -rf NLHS_sharing
+
+
+
 
