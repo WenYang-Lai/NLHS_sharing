@@ -1,7 +1,7 @@
 #!/bin/bash
 
 sudo apt-get update
-sudo apt-get install socat -y
+sudo apt-get install make socat -y
 
 sudo adduser    \
     --system    \
@@ -26,7 +26,7 @@ sudo adduser    \
 
 cd ~/NLHS_sharing/babyFmt
 make
-sud cp flag babyFmt /home/babyFmt/
+sudo cp flag babyFmt /home/babyFmt/
 sudo chown babyFmt:babyFmt /home/babyFmt/*
 
 sudo adduser    \
