@@ -42,9 +42,12 @@ make
 sudo cp flag babyROP /home/babyROP/
 sudo chown babyROP:babyROP /home/babyROP/*
 
-sudo -u babyBof socat TCP-LISTEN:10101,fork EXEC: /home/babyBof/babyBof &
-sudo -u babyFmt socat TCP-LISTEN:10102,fork EXEC: /home/babyFmt/babyFmt &
-sudo -u babyROP socat TCP-LISTEN:10103,fork EXEC: /home/babyROP/babyROP &
+cd /home/babyBof
+sudo -u babyBof socat TCP-LISTEN:10101,fork EXEC:/home/babyBof/babyBof &
+cd /home/babyFmt
+sudo -u babyFmt socat TCP-LISTEN:10102,fork EXEC:/home/babyFmt/babyFmt &
+cd /home/babyROP
+sudo -u babyROP socat TCP-LISTEN:10103,fork EXEC:/home/babyROP/babyROP &
 
 cd $HOME && rm -rf NLHS_sharing
 
